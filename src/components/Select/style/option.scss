@@ -1,0 +1,24 @@
+@import "styles/index.scss";
+
+$option-prefix-cls: "option";
+
+.#{$option-prefix-cls} {
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  user-select: none;
+  min-height: 30px;
+  box-sizing: border-box;
+  &.is-selected {
+    color: $blue;
+  }
+  &:hover,
+  &.is-hover {
+    background-color: lighten($color: $blue, $amount: 40%);
+    color: $blue;
+  }
+  &.is-disabled {
+    color: $black-45;
+    pointer-events: none;
+  }
+}

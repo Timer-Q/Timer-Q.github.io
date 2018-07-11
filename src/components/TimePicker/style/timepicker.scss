@@ -1,0 +1,55 @@
+@import "styles/index.scss";
+
+$timepicker-prefix-cls: "timepicker";
+
+$base-height: 44px;
+
+.#{$timepicker-prefix-cls} {
+  // &-selecter {
+  //   overflow: hidden;
+  //   &:hover {
+  //     overflow: auto;
+  //   }
+  // }
+  &-panel {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 2px 8px 0 $black-15;
+    background-color: #fff;
+    &-selecter {
+      width: 100%;
+      text-align: center;
+      max-height: $base-height * 6;
+      overflow: hidden;
+      &:hover {
+        overflow: auto;
+      }
+      &:not(:last-child) {
+        border-right: 1px solid $black-15;
+      }
+      ul {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding-bottom: 220px;
+        li {
+          width: 100%;
+          height: $base-height;
+          line-height: $base-height;
+          transition: all 0.3s;
+          cursor: pointer;
+          &.#{$timepicker-prefix-cls}-selected {
+            font-weight: 700;
+            background-color: colorPalette($blue, 0.1);
+            color: $blue;
+          }
+          &:hover {
+            background-color: colorPalette($blue, 0.1);
+          }
+        }
+      }
+    }
+  }
+}

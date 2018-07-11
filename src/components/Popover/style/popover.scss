@@ -1,0 +1,35 @@
+@import "styles/index.scss";
+
+$popover-prefix-cls: "popover";
+
+.#{$popover-prefix-cls} {
+  &-content {
+    display: block;
+    position: absolute;
+    z-index: $dropdown-zIndex;
+    outline: none;
+  }
+}
+
+.dropdown-enter,
+.dropdown-exit,
+.dropdown-appear {
+  transition: all 0.3s ease-in-out;
+  transform: scaleY(0);
+  transform-origin: top center;
+  opacity: 0;
+}
+
+.dropdown-enter-active,
+.dropdown-appear-active {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.dropdown-exit-active {
+  transform: scaleY(0);
+}
+
+.is-hide {
+  display: none;
+}

@@ -1,0 +1,88 @@
+// @import "styles/index.scss";
+
+// $list-prefix-cls: "list";
+// $base-font-size: 14px;
+
+// .#{$list-prefix-cls} {
+//   text-align: left;
+//   font-size: $base-font-size;
+//   color: #333;
+//   margin-bottom: 20px;
+//   &-item {
+//     display: grid;
+//     grid-template-columns: 2fr 5fr 2fr;
+//     width: 100%;
+//     box-sizing: border-box;
+//     &-extra {
+//       text-align: right;
+//       margin-left: 10px;
+//       box-sizing: border-box;
+//     }
+//     & > &-main {
+//       width: 70%;
+//     }
+//     &-footer {
+//       display: block;
+//       width: 100%;
+//       border: 1px solid $black-25;
+//       border-radius: 30px;
+//       text-align: center;
+//       padding-top: 5px;
+//       padding-bottom: 5px;
+//       margin-top: 10px;
+//       font-size: $base-font-size;
+//       span {
+//         padding: 0 10px;
+//       }
+//     }
+//     &-main {
+//       display: grid;
+//       grid-template-columns: 2fr 5fr;
+//     }
+//   }
+//   &-content {
+//     display: inline-block;
+//     vertical-align: top;
+//     text-align: left;
+//     line-height: 1.5;
+//     white-space: nowrap;
+//     .#{$list-prefix-cls}-info-content {
+//       display: inline-block;
+//       vertical-align: top;
+//       min-width: 80px;
+//       padding: 0 10px;
+//       width: 23%;
+//       &-header {
+//         font-weight: 700;
+//         font-size: 16px;
+//       }
+//       &-text {
+//         @include ellipsis();
+//       }
+//       &-line {
+//         position: relative;
+//         width: 100%;
+//         text-align: center;
+//         border-bottom: 1px solid $black-45;
+//         padding-bottom: $base-font-size;
+//         &:before,
+//         &:after {
+//           content: "";
+//           position: absolute;
+//           top: 100%;
+//           width: 8px;
+//           height: 8px;
+//           border-radius: 50%;
+//           background: #999;
+//           transform: translateY(-50%);
+//         }
+//         &:before {
+//           left: -1px;
+//         }
+//         &:after {
+//           right: -1px;
+//         }
+//       }
+//     }
+//   }
+// }

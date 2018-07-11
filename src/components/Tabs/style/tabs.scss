@@ -1,0 +1,107 @@
+@import "styles/index.scss";
+
+$tab-prefix-cls: "tabs";
+
+@mixin tab-hover() {
+  color: colorPalette($blue, 0.8);
+  border-color: $blue;
+}
+
+@mixin tab-active() {
+  color: #fff;
+  background-image: linear-gradient(to right, $blue-start, $blue-end);
+}
+
+.#{$tab-prefix-cls} {
+  position: relative;
+  .#{$tab-prefix-cls}-nav-container {
+    position: relative;
+    padding-right: 50px;
+    padding-bottom: 16px;
+    & > .icon {
+      position: absolute;
+      top: 15px;
+    }
+  }
+  .#{$tab-prefix-cls}-nav {
+    position: relative;
+    text-align: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    &.#{$tab-prefix-cls}-nav-overflow {
+      margin: 0 20px;
+    }
+    &-bar {
+      display: inline-block;
+      position: relative;
+      white-space: nowrap;
+      transition: transform 0.3s;
+      box-sizing: border-box;
+    }
+    .#{$tab-prefix-cls}-tab {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      height: 36px;
+      border: 1px solid $black-15;
+      border-radius: 4px;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: all 0.3s;
+      user-select: none;
+      vertical-align: middle;
+      background-color: $black-5;
+      &-content {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        & > .icon {
+          margin-left: 10px;
+        }
+      }
+      &:hover {
+        @include tab-hover();
+      }
+      &.is-actived {
+        @include tab-active();
+      }
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      &-close {
+        display: inline-block;
+        box-sizing: border-box;
+        padding-left: 5px;
+        margin-left: 5px;
+        vertical-align: middle;
+        border-left: 1px solid $black-15;
+      }
+      &-prefix {
+        padding-right: 5px;
+      }
+    }
+    &-button {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      vertical-align: middle;
+      &:hover {
+        @include tab-hover();
+      }
+    }
+  }
+  .#{$tab-prefix-cls}-content {
+    position: relative;
+    padding-bottom: 16px;
+    text-align: left;
+    .#{$tab-prefix-cls}-pane {
+      transition: all 0.3s;
+      &.is-inactived {
+        display: none;
+      }
+    }
+  }
+}

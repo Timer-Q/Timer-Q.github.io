@@ -1,0 +1,57 @@
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin arrow($direction, $color: #ddd, $width: 8px) {
+  display: inline-block;
+  overflow: hidden;
+  &:after {
+    display: inline-block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: $width;
+    border-style: solid;
+    border-color: transparent;
+  }
+  @if $direction == "bottom" {
+    width: $width * 2;
+    height: $width;
+    &:after {
+      border-top-color: $color;
+    }
+  }
+  @if $direction == "top" {
+    width: $width * 2;
+    height: $width;
+    &:after {
+      border-bottom-color: $color;
+    }
+  }
+  @if $direction == "right" {
+    width: $width;
+    height: $width * 2;
+    &:after {
+      border-left-color: $color;
+    }
+  }
+  @if $direction == "left" {
+    width: $width;
+    height: $width * 2;
+    &:after {
+      border-right-color: $color;
+    }
+  }
+}
+
+@mixin gradient($startColor, $endColor, $direction: 90deg) {
+  background-image: linear-gradient($direction, $startColor, $endColor);
+}
+
+@mixin title($paddingBottom: 5px, $fontSize: 14px, $color: $black-65) {
+  padding-bottom: $paddingBottom;
+  font-size: $fontSize;
+  color: $color;
+}

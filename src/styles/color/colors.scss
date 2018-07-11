@@ -1,0 +1,27 @@
+@import "./colorPalette.scss";
+
+// black
+$black: #000000;
+$black-65: colorPalette($black, 0.65);
+$black-45: colorPalette($black, 0.45);
+$black-25: colorPalette($black, 0.25);
+$black-15: colorPalette($black, 0.15);
+$black-10: colorPalette($black, 0.10);
+$black-5: colorPalette($black, 0.05);
+
+// blue
+$blue: #1890ff;
+$blue-start: #0096ff;
+$blue-end: #2e6cf6;
+
+// red
+$red: #ff4a26;
+$red-start: #ff814e;
+$red-end: #ff4a26;
+
+// yellow
+$yellow: #ffc700;
+
+// green
+
+$green: #44c566;

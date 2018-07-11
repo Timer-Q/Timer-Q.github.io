@@ -1,0 +1,160 @@
+@import "styles/index.scss";
+
+$menu-prefix-cls: "menu";
+$sub-menu-prefix-cls: "sub-menu";
+$menuItem-prefix-cls: "menu-item";
+$menu-height: 50px;
+
+.#{$menu-prefix-cls}-wrapper {
+  height: 50px;
+  margin-bottom: 24px;
+}
+
+.#{$menu-prefix-cls} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $menu-zIndex + 1;
+  min-width: 750px;
+}
+
+.#{$menu-prefix-cls},
+.#{$menu-prefix-cls}-item-wrapper {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  background: $blue;
+  height: $menu-height;
+  line-height: $menu-height;
+  & > .#{$menuItem-prefix-cls} {
+    color: darken($color: #fff, $amount: 20%);
+    width: 100%;
+    &.is-active {
+      color: #fff;
+    }
+  }
+  .#{$menu-prefix-cls}-logo {
+    display: inline-block;
+    width: 120px;
+    height: 33px;
+    margin-left: 10px;
+    // background: url(../mfwlogo.png) no-repeat 0 0;
+    background: #ddd;
+  }
+  .#{$menu-prefix-cls}-end {
+    text-align: right;
+    padding-right: 10px;
+    color: darken($color: #fff, $amount: 20%);
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.#{$menuItem-prefix-cls} {
+  position: relative;
+  flex: 1;
+  color: $black-65;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 150px;
+  text-align: center;
+  list-style: none;
+  @include ellipsis();
+  &-anchor {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+  }
+  &.is-active {
+    .#{$menuItem-prefix-cls}-anchor {
+      color: $blue;
+    }
+  }
+}
+
+.#{$menu-prefix-cls}-item-wrapper {
+  flex: 1;
+  justify-content: center;
+}
+
+// sub menu
+
+@mixin subMenu() {
+  top: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.#{$sub-menu-prefix-cls}-wrapper {
+  @include subMenu();
+  position: absolute;
+  left: 50%;
+  background: #ddd;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0 2px 12px 0px rgba(0, 0, 0, 0.1);
+  & > .#{$menuItem-prefix-cls} {
+    font-size: 14px;
+    transition: all .3s;
+    cursor: pointer;
+    &:hover {
+      background-color: lighten($color: $blue, $amount: 40%);
+      color: $blue;
+    }
+  }
+}
+
+.#{$sub-menu-prefix-cls} {
+  position: relative;
+  flex: 1;
+  font-size: 16px;
+  transition: all 0.3s;
+  max-width: 125px;
+  transition: all 0.3s;
+  height: 100%;
+  .#{$sub-menu-prefix-cls}-title {
+    color: darken($color: #fff, $amount: 20%);
+    width: 100%;
+    @include ellipsis();
+    transition: all 0.3s;
+    text-align: center;
+    cursor: pointer;
+  }
+  & > .#{$sub-menu-prefix-cls}-wrapper {
+    display: none;
+  }
+  &.is-opened {
+    background-color: darken($color: $blue, $amount: 15%);
+    & > .#{$sub-menu-prefix-cls}-wrapper {
+      display: block;
+    }
+    & > .#{$sub-menu-prefix-cls}-title {
+      color: #fff;
+    }
+    .menu-icon {
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &.is-active {
+    & > .#{$sub-menu-prefix-cls}-title {
+      color: #fff;
+    }
+  }
+}
+
+.menu-icon {
+  padding-left: 5px;
+}

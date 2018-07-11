@@ -1,0 +1,44 @@
+@import "styles/index.scss";
+
+$page-prefix-cls: "page";
+
+.#{$page-prefix-cls} {
+  padding: 0 24px;
+  box-sizing: border-box;
+  &-part {
+    max-width: 840px;
+    padding-right: 48px;
+    width: 80%;
+    box-sizing: border-box;
+    // padding: 40px 0;
+    // border-bottom: 1px solid $black-10;
+    &:not(:first-child) {
+      padding-top: 40px;
+    }
+    &:not(:last-child) {
+      padding-bottom: 40px;
+      border-bottom: 1px solid $black-10;
+    }
+    &-title {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 400;
+      color: $black-65;
+      margin: 0 0 24px 0;
+      &:before {
+        display: inline-block;
+        content: "";
+        width: 4px;
+        height: 30px;
+        margin-right: 10px;
+        border-radius: 2px;
+        @include gradient($blue-start, $blue-end);
+      }
+    }
+    &-subtitle {
+      position: relative;
+      min-height: 46px;
+    }
+  }
+}

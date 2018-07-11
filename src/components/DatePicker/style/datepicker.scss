@@ -1,0 +1,74 @@
+@import "styles/index.scss";
+
+$datepicker-prefic-cls: "date-picker";
+
+$picker-base-width: 335px;
+$picker-base-height: 350px;
+
+.#{$datepicker-prefic-cls} {
+  display: inline-block;
+  position: relative;
+  width: $picker-base-width;
+  height: $picker-base-height;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #fff;
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    &-btn {
+      span {
+        cursor: pointer;
+        padding: 0 5px;
+      }
+    }
+  }
+  &-content {
+    width: 100%;
+    border-collapse: collapse;
+    .date {
+      height: 40px;
+      line-height: 40px;
+      cursor: pointer;
+      border: 1px solid $black-15;
+      transition: all 0.3s;
+      text-align: center;
+      &:hover {
+        background-color: colorPalette($blue, 0.3);
+      }
+      &.date-pre,
+      &.date-after {
+        opacity: 0.3;
+      }
+      &.is-selected {
+        color: #fff;
+        @include gradient($blue-start, $blue-end);
+        border-left-color: $blue-start;
+      }
+    }
+  }
+  &-panel {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 70px;
+    text-align: center;
+    background: #fff;
+    
+    &-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      &-item {
+        display: inline;
+        padding: 10px 5px;
+        cursor: pointer;
+        &.is-selected {
+          color: #fff;
+          @include gradient($blue-start, $blue-end);
+        }
+      }
+    }
+  }
+}

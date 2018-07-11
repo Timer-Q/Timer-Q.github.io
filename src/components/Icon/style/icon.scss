@@ -1,0 +1,32 @@
+@import "./iconfont.scss";
+
+$icon-prefix-cls: "icon";
+
+.#{$icon-prefix-cls} {
+  font-size: 12px;
+  &:before {
+    display: inline-block;
+    transition: transform 0.3s;
+    vertical-align: middle;
+  }
+}
+
+.#{$icon-prefix-cls}-default {
+  font-size: 14px;
+}
+
+.#{$icon-prefix-cls}-large {
+  font-size: 16px;
+}
+
+.#{$icon-prefix-cls}-spin {
+  &:before {
+    animation: spin 1s infinite ease-in-out;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

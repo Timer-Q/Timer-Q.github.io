@@ -1,0 +1,178 @@
+@import "styles/index.scss";
+$button-prefix-cls: "button";
+
+// font
+$btn-font-base: 14px;
+$btn-font-lg: 16px;
+$btn-font-sm: 12px;
+
+// height
+$btn-height-base: 40px;
+$btn-height-lg: 50px;
+$btn-height-sm: 30px;
+
+// padding
+$btn-padding-base: 0 15px;
+$btn-padding-lg: 0 15px;
+$btn-padding-sm: 0 7px;
+
+// border-radius
+$btn-border-radius-base: 4px;
+
+// mixins
+@mixin button-type($startColor: $black-25, $endColor: $black-45) {
+  background-image: linear-gradient(90deg, $startColor, $endColor);
+  color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+  border: none;
+  &:not(:disabled):hover {
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+  &.#{$button-prefix-cls}-ghost {
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid $endColor;
+    color: $endColor;
+  }
+}
+
+@mixin button-size(
+  $height: $btn-height-base,
+  $padding: $btn-padding-base,
+  $font-sze: $btn-font-base,
+  $border-radius: $btn-border-radius-base
+) {
+  height: $height;
+  padding: $padding;
+  font-size: $font-sze;
+  border-radius: $border-radius;
+  line-height: $height - 2;
+  &.button-circle {
+    width: $height * 0.8;
+    height: $height * 0.8;
+    line-height: $height * 0.8 - 2;
+    padding: 0;
+    border-radius: 100%;
+  }
+}
+
+@mixin button-disabled() {
+  background: $black-5;
+  border: 1px solid $black-15;
+  color: $black-25;
+  cursor: not-allowed;
+}
+
+.#{$button-prefix-cls} {
+  display: inline-block;
+  outline: none;
+  vertical-align: middle;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  @include button-type();
+  @include button-size();
+  transition: all 0.3s;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+  &-icon {
+    display: inline-block;
+    &:not(:last-child) {
+      padding-right: 5px;
+    }
+  }
+}
+
+// large
+.#{$button-prefix-cls}-large {
+  @include button-size(
+    $btn-height-lg,
+    $btn-padding-lg,
+    $btn-font-lg,
+    $btn-border-radius-base
+  );
+}
+// small
+.#{$button-prefix-cls}-small {
+  @include button-size(
+    $btn-height-sm,
+    $btn-padding-sm,
+    $btn-font-sm,
+    $btn-border-radius-base
+  );
+}
+
+// primary
+.#{$button-prefix-cls}-primary {
+  @include button-type($blue-start, $blue-end);
+}
+
+// danger
+.#{$button-prefix-cls}-danger {
+  @include button-type($red-start, $red-end);
+}
+
+.#{$button-prefix-cls}-link {
+  border: none;
+  background-image: none;
+  color: $blue-start;
+  height: auto;
+  line-height: 1.5;
+  padding: 0;
+  background-color: transparent;
+  &:not(:disabled):hover {
+    border: none;
+    text-decoration: underline;
+    box-shadow: none;
+  }
+}
+
+// disabled
+.#{$button-prefix-cls}:disabled {
+  @include button-disabled();
+}
+
+.button-group {
+  display: inline-block;
+  .#{$button-prefix-cls}:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+  }
+  .#{$button-prefix-cls}:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .#{$button-prefix-cls}:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    border-right: none;
+  }
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.#{$button-prefix-cls}-loading {
+  // 涨姿势的属性 禁止鼠标事件
+  pointer-events: none;
+  @include button-disabled();
+}
+
+.icon-loading {
+  display: inline-block;
+  border-radius: 100%;
+  width: $btn-font-base;
+  height: $btn-font-base;
+  border-top: 1px solid $black-25;
+  animation: lodaingInfinite 1s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes lodaingInfinite {
+  100% {
+    transform: rotate(360deg);
+  }
+}
